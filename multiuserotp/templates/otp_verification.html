@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>home</title>
+  {% endblock %}
+
+{% block content %}
+<div class="container bg-info text-center mx-auto mt-5 p-4 border border-2px border-light shadow">
+<h1>OTP VERIFICATION</h1>
+<form method="post">
+    {% csrf_token %}
+
+    <div class="mt-3">
+        <label>Enter OTP</label>
+        <input type="text" name="o" placeholder="OTP">
+    </div>
+      <div class="mt-3">
+        <input type="submit" class="btn btn-light p-2">
+    </div>
+</form>
+        {% if messages %}
+<ul >
+    {% for i in messages %}
+    <li>{{i}}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+</div>
+{% endblock %}

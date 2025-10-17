@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container text-center fs-3 mx-auto mt-5 p-4 border border-2px">
+
+<h1>VIEWBOOKS</h1>
+
+        <table class="table table-bordered border-primary mt-5 fs-5">
+            <tr>
+
+                <th>EMP_ID</th>
+                <th>EMP_NAME</th>
+                <th>IMAGE</th>
+                <th>EMAIl</th>
+                <th>PHONE</th>
+                <th>DESIGNATION</th>
+                <th>SALARY</th>
+            </tr>
+            {% for i in form %}
+            <tr class="fs-6">
+                    <td>{{i.emp_id}}</td>
+                    <td>{{i.emp_name}}</td>
+                    <td><img src="{{i.image.url}}" height="60px"> </td>
+                    <td>{{i.email}}</td>
+                    <td>{{i.phone}}</td>
+                    <td>{{i.designation}}</td>
+                    <td>{{i.salary}}</td>
+
+            </tr>
+    {% endfor %}
+            </table>
+
+</div>
+{% endblock %}

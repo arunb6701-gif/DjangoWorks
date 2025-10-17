@@ -1,0 +1,54 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>viewook</title>
+  {% endblock %}
+
+{% block content %}
+<div class="container text-center fs-3 mx-auto mt-5 p-4 border border-2px border-danger">
+
+<h1>VIEWBOOKS</h1>
+
+        <table class="table table-bordered border-primary mt-5 fs-5">
+            <tr>
+                <th>image</th>
+                <th>title</th>
+                <th>author</th>
+                <th>pages</th>
+                <th>price</th>
+                <th>language</th>
+                <td>actions</td>
+
+            </tr>
+             {% for i in books %}
+            <tr>
+                    <td><img src="{{i.image.url}}" height="60px"> </td>
+                    <td>{{i.title}}</td>
+                    <td>{{i.author}}</td>
+                    <td>{{i.pages}}</td>
+                    <td>{{i.price}}</td>
+                    <td>{{i.language}}</td>
+                    <td><a href="{% url 'books:viewdetails' i.id %}" class="btn btn-danger">view</a>
+                        <a href="{% url 'books:editbook' i.id %}" class="btn btn-danger">edit</a>
+                        <a href="{% url 'books:deletebook' i.id %}" class="btn btn-danger">delete</a> </td>
+
+
+            </tr>
+    {% endfor %}
+            </table>
+
+<!--    <ol class="text-start fs-5">-->
+<!--        {% for i in books %}-->
+<!--        <li>Book Details</li>-->
+<!--        <ul>-->
+<!--            <li>title &#45;&#45; {{i.title}}</li>-->
+<!--            <li>author &#45;&#45; {{i.author}}</li>-->
+<!--            <li>pages  &#45;&#45; {{i.pages}}</li>-->
+<!--            <li>price  &#45;&#45; {{i.price}}</li>-->
+<!--            <li>language &#45;&#45; {{i.language}}</li>-->
+<!--        </ul>-->
+<!--        {% endfor %}-->
+<!--    </ol>-->
+</div>
+{% endblock %}

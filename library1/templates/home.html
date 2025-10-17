@@ -1,0 +1,20 @@
+
+
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>home</title>
+  {% endblock %}
+
+{% block content %}
+<div class="container text-center mx-auto mt-5 p-4 border border-2px border-primary shadow">
+
+<h1>WELCOME</h1>
+     {% if user.is_authenticated %}
+    <h4>{{user.username}}</h4>
+    {% else %}
+    <h4>Guest</h4>
+    {% endif %}
+</div>
+
+{% endblock %}
